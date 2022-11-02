@@ -1,0 +1,630 @@
+#:import Factory kivy.factory.Factory
+WindowManager:
+    WelcomeScreen:
+    LoginScreen:
+    SignUpScreen:
+    HomeScreen:
+    ViewSettingsScreen:
+    EditSettingsScreen:
+    ViewReceiptsScreen:
+    ViewReceiptScreen:
+    CategorizeReceiptScreen:
+
+# WELCOME SCREEN STYLING
+<WelcomeScreen>:
+    WelcomeLayout:
+
+<WelcomeLayout>
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height / 40 * 7
+        pos: 0, root.height / 40 * 33
+        padding: 0, root.height / 40 * 3, 0, 0
+
+        Header:
+    
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height / 40 * 18
+        pos: 0, root.height / 40 * 22
+        padding: 0, root.height / 40 * 8, 0, 0
+
+        Image:
+            source: 'BalanceLogo.png'
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height / 40 * 38
+        pos: 0, root.height / 40 * 2
+        padding: root.height / 40, root.height / 40 * 23, root.height / 40, 0
+
+        ContainerBox:
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height / 40 * 7
+        pos: 0, root.height / 40 * 33
+        padding: 0, root.height / 40 * 3, 0, 0
+
+        Label:
+            markup: True
+            font_name: "Calibrib"
+            font_size: 30
+            text: "Welcome"
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height / 40 * 37
+        pos: 0, root.height / 40 * 3
+        padding: root.height / 40 * 2, root.height / 40 * 24, root.height / 40 * 2, 0
+        spacing: root.height / 40
+
+        RoundedButton:
+            text: "Sign In"
+            on_release: app.root.current = "login"
+
+        RoundedButton:
+            text: "Create Account"
+            on_release: app.root.current = "signup"
+
+<RoundedButton@Button>:
+    background_color: 0,0,0,0
+    markup: True
+    font_name: "Calibrib"
+    font_size: 30
+    canvas.before:
+        Color:
+            rgba: (0.71, 0.65, 0.84, 1) if self.state == 'normal' else (0.85, 0.82, 0.91, 1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [20]
+
+<RoundedButtonAlt@Button>:
+    background_color: 0,0,0,0
+    markup: True
+    font_name: "Calibrib"
+    font_size: 20
+    canvas.before:
+        Color:
+            rgba: (0.56, 0.49, 0.76, 1) if self.state == 'normal' else (0.85, 0.82, 0.91, 1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [20]
+
+<Header@BoxLayout>:
+    background_color: 0,0,0,0
+    canvas.before:
+        Color:
+            rgba: (0.71, 0.65, 0.84, 1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [0, 30, 30, 0]
+
+<ContainerBox@BoxLayout>:
+    background_color: 0,0,0,0
+    canvas.before:
+        Color:
+            rgba: (0.56, 0.49, 0.76, 1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [30]
+
+#SIGNUP SCREEN STYLING
+<SignUpScreen>:
+    name: "signup"
+    SignUpLayout:
+
+<SignUpLayout>
+    email: email
+    phone: phone
+    password: password
+    password_confirm: password_confirm
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height / 40 * 7
+        pos: 0, root.height / 40 * 33 + 20
+        padding: 0, root.height / 40 * 3, 0, 0
+
+        Header:
+    
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height / 40 * 18
+        pos: 0, root.height / 40 * 22 + 20
+        padding: 0, root.height / 40 * 8, 0, 0
+
+        Image:
+            source: 'BalanceLogo.png'
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height / 40 * 38
+        pos: 0, root.height / 40 * 2 + 20
+        padding: root.height / 40, root.height / 40 * 19, root.height / 40, 0
+
+        ContainerBox:
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height / 40 * 37
+        pos: 0, root.height / 40 * 3 + 20
+        padding: root.height / 40 * 2, root.height / 40 * 20, root.height / 40 * 2, 0
+        spacing: root.height / 40
+
+        InputField:
+
+        InputField:
+
+        InputField:
+
+        InputField:
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height / 40 * 7
+        pos: 0, root.height / 40 * 33 + 20
+        padding: 0, root.height / 40 * 3, 0, 0
+
+        Label:
+            markup: True
+            font_name: "Calibrib"
+            font_size: 30
+            text: "Create Account"
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height / 40 * 37
+        pos: 0, root.height / 40 * 3 + 20
+        padding: root.height / 40 * 2, root.height / 40 * 20, root.height / 40 * 2, 0
+        spacing: root.height / 40
+
+        UserInput:
+            hint_text: "Email:"
+            id: email
+
+        UserInput:
+            hint_text: "Phone:"
+            id: phone
+
+        UserInput:
+            hint_text: "Password:"
+            id: password
+
+        UserInput:
+            hint_text: "Confirm Password:"
+            id: password_confirm
+        
+    BoxLayout:
+        orientation: "horizontal"
+        size: root.width, root.height / 40 * 22
+        pos: 0, 0
+        padding: root.height / 40 * 2, root.height / 40 * 19, root.height / 40 * 2, 0
+        spacing: root.height / 40
+
+        RoundedButtonAlt:
+            text: "Sign Up"
+            on_release: root.signup()
+
+        RoundedButtonAlt:
+            text: "Log In"
+            on_release: app.root.current = "login"
+
+
+<InputField@BoxLayout>:
+    background_color: 0,0,0,0
+    canvas.before:
+        Color:
+            rgba: (0.71, 0.65, 0.84, 1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [20]
+
+<UserInput@TextInput>:
+    multiline: False
+    font_name: "Calibrib"
+    font_size: 20
+    padding_y: 19
+    foreground_color: 1, 1, 1, 1
+    background_color: 0, 0, 0, 0
+    hint_text_color: 1, 1, 1, 0.5
+    cursor_color: 1, 1, 1, 1
+
+
+#LOGIN SCREEN STYLING
+<LoginScreen>:
+    name: "login"
+    LoginLayout:
+
+<LoginLayout>
+    email: email
+    password: password
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height / 40 * 7
+        pos: 0, root.height / 40 * 33
+        padding: 0, root.height / 40 * 3, 0, 0
+
+        Header:
+    
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height / 40 * 18
+        pos: 0, root.height / 40 * 22
+        padding: 0, root.height / 40 * 8, 0, 0
+
+        Image:
+            source: 'BalanceLogo.png'
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height / 40 * 38
+        pos: 0, root.height / 40 * 2 + 40
+        padding: root.height / 40, root.height / 40 * 28, root.height / 40, 0
+
+        ContainerBox:
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height / 40 * 37
+        pos: 0, root.height / 40 * 3 + 40
+        padding: root.height / 40 * 2, root.height / 40 * 29, root.height / 40 * 2, 0
+        spacing: root.height / 40
+
+        InputField:
+
+        InputField:
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height / 40 * 7
+        pos: 0, root.height / 40 * 33
+        padding: 0, root.height / 40 * 3, 0, 0
+
+        Label:
+            markup: True
+            font_name: "Calibrib"
+            font_size: 30
+            text: "Sign In"
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height / 40 * 37
+        pos: 0, root.height / 40 * 3 + 40
+        padding: root.height / 40 * 2, root.height / 40 * 29, root.height / 40 * 2, 0
+        spacing: root.height / 40
+
+        UserInput:
+            hint_text: "Email:"
+            id: email
+
+        UserInput:
+            hint_text: "Password:"
+            id: password
+
+    BoxLayout:
+        orientation: "horizontal"
+        size: root.width, root.height / 40 * 22
+        pos: 0, 0
+        padding: root.height / 40 * 2, root.height / 40 * 19, root.height / 40 * 2, 0
+        spacing: root.height / 40
+
+        RoundedButtonAlt:
+            text: "Log In"
+            on_release: root.login()
+
+        RoundedButtonAlt:
+            text: "Sign Up"
+            on_release: app.root.current = "signup"
+
+
+
+<HomeScreen>:
+    name: "home"
+    GridLayout:
+        cols:1
+        Label:
+            text: "Home"
+        GridLayout:
+            cols: 1
+            Label:
+                text: "Spending Insights"
+        GridLayout:
+            cols:1 
+            Button:
+                text: "Receive Receipt"
+                on_release: root.receive_receipt()
+            Button:
+                text: "Add Receipt"
+        AppBar:
+
+<AppBar>:
+    GridLayout:
+        cols: 3
+        Button:
+            text: "View"
+            on_release: app.root.current = "months"
+        Button:
+            text: "Home"
+            on_release: app.root.current = "home"
+        Button:
+            text: "Settings"
+            on_release: app.root.current = "settings"
+
+
+<ViewSettingsScreen>:
+    name: "settings"
+    GridLayout:
+        cols: 1
+        Label:
+            text: "Settings"
+        GridLayout:
+            cols: 1
+            Label:
+                text: "Profile"
+            GridLayout:
+                cols:2
+                Label:
+                    text: "Name:"
+                Label:
+                    text: root.username
+                Label:
+                    text: "Email:"
+                Label:
+                    text: root.email
+                Label:
+                    text: "Phone Number:"
+                Label:
+                    text: root.phone
+        GridLayout:
+            cols: 1
+            Button:
+                text: "Edit Profile"
+                on_release: app.root.current = "profile"
+            Button:
+                text: "Sign Out"
+                on_release: app.root.current = "login"
+        AppBar:
+                
+<EditSettingsScreen>:
+    name: "profile"
+    _username: _username
+    _email: _email
+    _phone: _phone
+    GridLayout:
+        cols: 1
+        Label: 
+            text: "Edit Profile"
+        GridLayout:
+            cols: 2
+            Label:
+                text: "Display Name: "
+            TextInput:
+                id: _username
+                text: root.username
+            Label:
+                text: "Email: "
+            TextInput:
+                id: _email
+                text: root.email
+            Label:
+                text: "Phone Number: "
+            TextInput:
+                id: _phone
+                text: root.phone
+            Button:
+                text: "Cancel"
+                on_release: app.root.current = "settings"
+            Button:
+                text: "Submit"
+                on_release: 
+                    root.update_user_info()
+                    app.root.current = "settings"
+
+<ViewCategoriesScreen>:
+    name: "categories"
+    GridLayout:
+        cols: 1
+        GridLayout:
+            cols: 2
+            Label:
+                text: "Receipts by Category"
+            Button:
+                text: "View Months"
+                on_release: app.root.current = "months"
+        RecycleView:
+            viewclass: 'Button'
+            id: category_list
+            data: []
+            RecycleBoxLayout:
+                default_size: None, 100
+                default_size_hint: 1, None
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: 'vertical'
+        AppBar:
+
+<ViewMonthsScreen>:
+    name: "months"
+    GridLayout:
+        cols: 1
+        GridLayout:
+            cols: 2
+            Label:
+                text: "Receipts by Month"
+            Button:
+                text: "View Categories"
+                on_release: app.root.current = "categories"
+        RecycleView:
+            viewclass: 'Button'
+            id: month_list
+            data: []
+            RecycleBoxLayout:
+                default_size: None, 100
+                default_size_hint: 1, None
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: 'vertical'
+        AppBar:
+
+<ViewReceiptsScreen>:
+    name: "receipts"
+    GridLayout:
+        cols: 1
+        Button:
+            text: "Go Back"
+            on_release: app.root.current = app.root.previous()
+        RecycleView:
+            viewclass: 'Button'
+            id: receipt_list
+            data: []
+            RecycleBoxLayout:
+                default_size: None, 100
+                default_size_hint: 1, None
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: 'vertical'
+
+<ViewReceiptScreen>:
+    name: "receipt"
+    GridLayout:
+        cols: 1
+        Label:
+            id: receipt_vendor
+            text: ""
+        Label:
+            id: receipt_date
+            text: ""
+        RecycleView:
+            viewclass: 'Label'
+            id: item_list
+            data: []
+            RecycleBoxLayout:
+                default_size: None, 100
+                default_size_hint: 1, None
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: 'vertical'
+        GridLayout:
+            cols: 4
+            Button:
+                text: "Back"
+                on_release: app.root.current = app.root.previous()
+            Button:
+                text: "Share"
+                on_release: root.share_receipt()
+            Button:
+                text: "Categorize"
+                on_release: app.root.current = "categorize"
+            Button:
+                text: "Delete"
+                on_release: root.show_delete_popup()
+
+<SaveDialog>:
+    text_input: text_input
+    BoxLayout:
+        size: root.size
+        pos: root.pos
+        orientation: "vertical"
+        FileChooserListView:
+            id: filechooser
+            on_selection: text_input.text = self.selection and self.selection[0] or ''
+
+        TextInput:
+            id: text_input
+            size_hint_y: None
+            height: 30
+            multiline: False
+
+        BoxLayout:
+            size_hint_y: None
+            height: 30
+            Button:
+                text: "Cancel"
+                on_release: root.cancel()
+
+            Button:
+                text: "Save"
+                on_release: root.save(filechooser.path, text_input.text)
+
+<LoadDialog>:
+    BoxLayout:
+        size: root.size
+        pos: root.pos
+        orientation: "vertical"
+        FileChooserListView:
+            id: filechooser
+
+        BoxLayout:
+            size_hint_y: None
+            height: 30
+            Button:
+                text: "Cancel"
+                on_release: root.cancel()
+
+            Button:
+                text: "Load"
+                on_release: root.load(filechooser.path, filechooser.selection)
+
+<DeleteDialog>:
+    BoxLayout:
+        size_hint_y: None
+        height: 40
+        pos: root.pos
+        orientation: "vertical"
+        Label:
+            text: "Are you sure you want to delete this receipt?"
+        BoxLayout:
+            size_hint_y: None
+            height: 30
+            Button:
+                text: "Cancel"
+                on_release: root.cancel()
+            Button:
+                text: "Delete"
+                on_release: root.delete()
+
+<CategorizeReceiptScreen>:
+    new_category_input: new_category_input
+    GridLayout:
+        cols: 1
+        GridLayout:
+            cols: 2
+            Button:
+                text: "Back"       
+                on_release:
+                    root.update_category_record()
+                    app.root.current = app.root.previous()     
+            Label:
+                text: "Categorize Receipt"
+        GridLayout:
+            cols: 2
+            Label:
+                text: "Current Category"
+            Label:
+                id: receipt_category
+                text: ""
+        RecycleView:
+            viewclass: 'Button'
+            id: categorize_list
+            data: []
+            RecycleBoxLayout:
+                default_size: None, 100
+                default_size_hint: 1, None
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: 'vertical'
+        GridLayout:
+            cols: 3
+            Label:
+                text: "Enter new category"
+            TextInput:
+                id: new_category_input
+                multiline: False
+            Button:
+                text: "+"
+                on_release: root.add_new_category()
