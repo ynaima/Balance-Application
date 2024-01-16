@@ -1,5 +1,8 @@
-Installation Instructions for Balance
+Balance: Digital Receipt Management System
 
+"Balance" is an innovative digital solution aimed at transforming the traditional receipt handling process. It consists of a dual-component system: a specialized terminal integrated into Point-of-Sale (POS) machines, and a user-friendly mobile application. The terminal uses Near-Field Communication (NFC) technology to transmit detailed receipt data directly to the user's smartphone application. This system offers an eco-friendly, paperless solution for receipt management, helping both consumers and retailers to organize and track purchases efficiently and sustainably.
+
+Installation Instructions for Balance
 1. Ensure you have installed the latest version of mySQL to your device
     a. https://dev.mysql.com/downloads/
 2. After installing mySQL, open your mysql terminal window, log in, and run the following command to create the database:
