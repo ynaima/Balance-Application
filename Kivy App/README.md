@@ -33,3 +33,6 @@ through the receive receipt use case. Instructions for this process follow:
 4. Repeat this process for as many receipts you want to import to your account
 
 
+![Homepage images](home_page.png)
+![Sign in Pages](Sign_in_page.png)
+![View Receipt Image](View_receipt.png)
